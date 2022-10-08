@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Define routing
 func initRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 	private := router.NewRoute().Subrouter()
