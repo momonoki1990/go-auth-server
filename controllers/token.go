@@ -34,7 +34,7 @@ func TokenHandler(w http.ResponseWriter, r *http.Request) {
 	
 	// Return token as cookie
 	cookie := &http.Cookie{
-		Name: "user",
+		Name: auth.TokenCookieName,
 		Value: token,
 		// Path: "",
 		Domain: "localhost",

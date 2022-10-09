@@ -17,7 +17,7 @@ func initRouter() *mux.Router {
 
 	// Register private handler
 	private.HandleFunc("/private", controllers.PrivateHandler)
-	private.Use(auth.SampleMiddleWare)
+	private.Use(auth.VerifyToken)
 
 	return router
 }
