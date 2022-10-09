@@ -1,6 +1,6 @@
 # go-auth-server
 
-Auth server by go
+Auth server by go, returning jwt token in cookie if access to /token.
 Use:
 
 - gorilla/mux (for simple router)
@@ -15,6 +15,30 @@ JWT_SECRET_KEY={random value}
 
 $ go build
 $ ./go-auth-server
+```
+
+## Send request to server
+
+```
+# Access to public endpoint
+$ curl http://localhost:8080/public
+This is public handler
+
+# Access to private endpoint without token
+$ curl http://localhost:8080/private
+Internal Server Error
+
+# Get token
+$ curl -X POST http://localhost:8080/token -d "email=sample@sample.com&password=mypassword" -H "application/x-www-form-urlencoded" -c cookie.txt
+Succesfully token returned
+
+# Access to private endpoint with token
+$ curl http://localhost:8080/private  -b cookie.txt
+Authorization succeeded (successfully accessed to private handler)
+
+# Modify token string in cookie.txt
+# Access to private endpoint with invalid token
+Invalid token
 ```
 
 ## Reference
