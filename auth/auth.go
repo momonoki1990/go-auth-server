@@ -59,7 +59,7 @@ func VerifyToken(next http.Handler) http.Handler {
 		if err != nil {
 			log.Println("Error at token string parse:", err)
 			w.WriteHeader(http.StatusUnauthorized)
-			fmt.Fprint(w, "Token is invalid")
+			fmt.Fprint(w, "Invalid token")
 			return
 		}
 
