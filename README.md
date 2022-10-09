@@ -3,11 +3,16 @@
 Auth server by go
 Use:
 
-- gorilla/mux (simple router)
+- gorilla/mux (for simple router)
+- golang-jwt/jwt
 
 ## Get started
 
 ```
+$ vim .env
+# Generate by '$ openssl rand -hex 32'
+JWT_SECRET_KEY={random value}
+
 $ go build
 $ ./go-auth-server
 ```
